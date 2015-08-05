@@ -1,0 +1,71 @@
+<!--
+Downloaded:
+	node.js - lets you create a server
+	npm - part of node.js and helps you install software like http-server
+	http-server - downloaded using node. Now we can run it
+	Atom - this is this editor
+
+ To start the web server:
+start -> run -> powershell
+
+cd C:\Users\Sanda\Documents\Studying\Programming\HTML5\Dodger
+    cd is to change directory
+
+Type in:
+  http-server
+press enter
+
+In chrome type in:
+http://localhost:8080/
+
+If you cannot see the editing stuff click F12
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dodge the rocks!!.</title>
+
+	<script src="EaselJS-0.8.1/lib/easeljs-NEXT.combined.js"></script>
+	<!-- We also provide hosted minified versions of all CreateJS libraries.
+	  http://code.createjs.com -->
+	<script src="main.js"></script>
+  <script src="dude.js"></script>
+  <script src="rock.js"></script>
+	<script src="collisiondetection.js"></script>
+	<script src="gameover.js"></script>
+	<script src="UI.js"></script>
+	<script src="mainmenu.js"></script>
+
+	<style>
+		#container {
+			position: relative;
+		}
+		button {
+			position: absolute;
+		}
+	</style>
+
+
+</head>
+
+<!-- Have to have the  "<body onload="init();">" in the index or nothing will run -->
+<body onload="preload();">
+<header class="EaselJS">
+	<h1>Bar Graph Example</h1>
+
+	<p>Reload for new random data. Example of using the <code>Graphics</code>,
+		<code>Shape</code>, <code>Text</code> and <code>Container</code> classes
+		to draw a simple vector bar graph.
+	</p>
+</header>
+
+<div id="container">
+	<canvas id="testCanvas" width="960" height="400"
+			style="background: #111926"></canvas>
+</div>
+
+</body>
+</html>
