@@ -13,6 +13,9 @@ var GAMEWIDTH;
 var GAMEHEIGHT;
 
 var startrocks = 10;
+var rockincrement = 2;
+var rockincrementspeed = 10;
+var lastcreatedrock = 0;
 var art = {};
 
 var gamekilled = false;
@@ -39,11 +42,12 @@ function init() {
 
   // start the tick and point it at the window so we can do some work before updating the stage:
   createjs.Ticker.timingMode = createjs.Ticker.RAF;
+  //RAF is request animation frame - this is relatively new and some old browsers will not be able to support this.
   createjs.Ticker.addEventListener("tick", tick);
 }
 
 function tick(event) {
-  // update the all the things that happen in the game:
+  // update all the things that happen in the game:
   if (!collision.collisiondetected) {
     if (person){
       person.update(event);
@@ -52,9 +56,16 @@ function tick(event) {
       ui.update(event);
     }
     if (rocks){
-      for (i = 0; i< rocks.length; i++) {
+      for (i = 0; i < rocks.length; i++) {
         rocks[i].update(event);
       }
+      // Make more rocks fall every 10 seconds:
+        if (Math.round(ui.count/1000) % rockincrementspeed == 0) {
+          if (lastcreatedrock < Math.round(ui.count/1000)) {
+            lastcreatedrock = Math.round(ui.count/1000);
+            rocks.push(new Rock());
+          }
+        }
       collision.update(rocks, person);
     }
   }
