@@ -1,0 +1,19 @@
+{
+  "name": "FallingRocks",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SneezingNapkin/FallingRocks",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "easeljs": "~0.8.1"
+  }
+}
